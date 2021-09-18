@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CartItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartItemController extends Controller
 {
@@ -41,10 +42,10 @@ class CartItemController extends Controller
                 'item_id' => $request->post('item_id'),
             ],
             [
-                'quantity' => \DB::raw('quantity +' .$request->post('quantity')),
+                'quantity' => \DB::raw('quantity + ' . $request->post('quantity') ),
             ]
         );
-        return redirect('/')->with('flash_message','カートに追加しました。');
+        return redirect('/')->with('flash_message', 'カートに追加しました。');
     }
 
     /**
