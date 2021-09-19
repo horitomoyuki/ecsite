@@ -15,6 +15,8 @@ Route::get('/','ItemController@index');
 Route::get('/item/{item}','ItemController@show');
 Route::post('/cartitem', 'CartItemController@store');
 Route::get('/cartitem','CartItemController@index');
+Route::get('/cartitem/{cartItem}','CartItemController@destroy');
+Route::get('/cartitem/{cartItem}','CartItemController@update');
 
 Auth::routes();
 
